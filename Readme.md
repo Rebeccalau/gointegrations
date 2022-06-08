@@ -1,6 +1,5 @@
 # GO Spikes
 Using Go version `1.17.10`
-Latest version which is supported by the OS
 
 ## SQL
 SQLite3
@@ -8,10 +7,10 @@ SQLite3
 Installed
 `go install  github.com/mattn/go-sqlite3`
 
-CRUD operations however no wrapper for sql commands written in strings. (Potentially another library to cover this)
+- [x] CRUD operations however no wrapper for sql commands written in strings. (Potentially another library to cover this)
 Table creation, schema changing available.
 
-Migration libraries available.
+- [x] Migration libraries available
 
 ## NOSQL
 MongoDb
@@ -26,7 +25,11 @@ brew install mongodb-community@5.0
 To run Mongodb 
 `mongod --config /opt/homebrew/etc/mongod.conf`
 
-CRUD operations.
+- [x] CRUD operations.
 
-Migration libs available.
+- [x] Migration libs available.
 
+## Command Executions
+- [x] Shell
+- [x] CLI
+- [x] Read outputs/errors
