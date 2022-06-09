@@ -38,8 +38,9 @@ To run Mongodb
 Installed [Link](https://github.com/aws/aws-sdk-go)
 `go get github.com/aws/aws-sdk-go`
 
-- [x] Upload <br>
-- [ ] Transfer Manager? To show percentage upload.
+- [x] Upload
+- [x] Percentage Upload 
 - [x] Errors
+- [x] Download with Percentage [Link](https://github.com/aws/aws-sdk-go/blob/main/example/service/s3/getObjectWithProgress/getObjectWithProgress.go)
 
 Transfer manager available in `aws-sdk-go-v2` seems quite new. [Link](https://github.com/aws/aws-sdk-go-v2)

@@ -16,14 +16,15 @@ func Upload() {
 	MaxRetries := 10
 	UserAcc := true
 	path, _ := os.Getwd()
+	//filename := filepath.Join(path, "data", "video.mp4")
 	filename := filepath.Join(path, "data", "test_upload.txt")
 	Region := "eu-west-1"
 
-	bucket := "bucket-name"
-	SecretAccessKey := "secret-access-key"
-	AccessKeyID := "access-id"
-	Token := "token"
-	Key := "key"
+	Bucket := os.Getenv("AWS_Bucket")
+	SecretAccessKey := os.Getenv("AWS_SecretAccessKey")
+	AccessKeyID := os.Getenv("AWS_AccessKeyID")
+	Token := os.Getenv("AWS_Token")
+	Key := os.Getenv("AWS_Key")
 
 	httpclient := getHttpClient(false)
 
@@ -42,6 +43,7 @@ func Upload() {
 
 	if sessionError != nil {
 		fmt.Println(sessionError)
+		return
 	}
 
 	uploader := s3manager.NewUploader(sess)
@@ -50,12 +52,25 @@ func Upload() {
 
 	if fileErr != nil {
 		fmt.Println(fileErr)
+		return
+	}
+
+	fileInfo, fileStatError := f.Stat()
+	if fileStatError != nil {
+		fmt.Println(fileStatError)
+		return
+	}
+
+	reader := &CustomReader{
+		fp:      f,
+		size:    fileInfo.Size(),
+		signMap: map[int64]struct{}{},
 	}
 
 	_, uploadError := uploader.Upload(&s3manager.UploadInput{
-		Bucket: aws.String(bucket),
+		Bucket: aws.String(Bucket),
 		Key:    aws.String(Key),
-		Body:   f,
+		Body:   reader,
 	})
 
 	if uploadError != nil {
