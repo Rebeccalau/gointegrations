@@ -4,7 +4,7 @@ Using Go version `1.17.10`
 ## SQL
 SQLite3
 
-Installed
+Installed [Link](https://github.com/mattn/go-sqlite3)
 `go install  github.com/mattn/go-sqlite3`
 
 - [x] CRUD operations however no wrapper for sql commands written in strings. (Potentially another library to cover this)
@@ -14,9 +14,10 @@ Table creation, schema changing available.
 
 ## NOSQL
 MongoDb
-Installed
+Installed [Link](https://github.com/mongodb/mongo-go-driver)
 `go get go.mongodb.org/mongo-driver/mongo`
 
+Pre-req
 ```
 brew tap mongodb/brew
 brew update
@@ -26,10 +27,19 @@ To run Mongodb
 `mongod --config /opt/homebrew/etc/mongod.conf`
 
 - [x] CRUD operations.
-
 - [x] Migration libs available.
 
 ## Command Executions
 - [x] Shell
 - [x] CLI
 - [x] Read outputs/errors
+
+## AWS SDK
+Installed [Link](https://github.com/aws/aws-sdk-go)
+`go get github.com/aws/aws-sdk-go`
+
+- [x] Upload <br>
+- [ ] Transfer Manager? To show percentage upload.
+- [x] Errors
+
+Transfer manager available in `aws-sdk-go-v2` seems quite new. [Link](https://github.com/aws/aws-sdk-go-v2)

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"databases/awsintegration"
 	"databases/cmdexecutions"
 	"databases/nosql"
 	sql2 "databases/sql"
@@ -10,6 +11,15 @@ import (
 func main() {
 	//SqlDatabaseCalls()
 	//NoSqlDatabaseCalls()
+	//CommandExecutions()
+	AWSCalls()
+
+}
+func AWSCalls() {
+	awsintegration.Upload()
+}
+
+func CommandExecutions() {
 	cmdexecutions.ExecuteCLICommand()
 	cmdexecutions.ExecuteShellScript()
 }
